@@ -14,6 +14,7 @@ export const typography = {
   },
 
   fontWeight: {
+    light: 200,
     normal: 400,
     medium: 500,
     semibold: 600,
