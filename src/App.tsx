@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import { FormLoader } from "./components/loaders";
-import { FormSelector, Logo } from "./components/ui";
-import { Flex } from "./components/layout";
+import { FormSelector } from "./components/ui";
+import { Flex, Header } from "./components/layout";
 
 import { theme } from "./styles/theme";
 
@@ -25,11 +25,7 @@ function App() {
           justify="center"
           gap={theme.spacing.lg}
         >
-          <Logo />
-          <h2>Schema-Driven Form Generator</h2>
-          <p>
-            Select a form type to generate a dynamic form based on JSON schema
-          </p>
+          <Header />
           <FormSelector onFormSelection={setFormId} />
         </Flex>
 
