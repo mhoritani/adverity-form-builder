@@ -2,7 +2,6 @@ import type { FieldDefinition } from "./field";
 
 export interface FormSchema {
   id: string;
-  version: string;
   metadata: FormMetadata;
   fields: FieldDefinition[];
 }
