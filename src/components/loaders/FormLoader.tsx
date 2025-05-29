@@ -1,5 +1,6 @@
 import type React from "react";
 import { useFormSchema } from "../../hooks";
+import { Button } from "../ui";
 
 export const FormLoader: React.FC<{
   formId: string;
@@ -13,7 +14,7 @@ export const FormLoader: React.FC<{
       {error && (
         <div className="error">
           Error loading form schema: {error.message}
-          <button onClick={() => refetch()}>Retry</button>
+          <Button onClick={() => refetch()}>Retry</Button>
         </div>
       )}
 

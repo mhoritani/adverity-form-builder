@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FormLoader } from "./components/loaders";
+import { Button } from "./components/ui";
 
 import "./App.css";
 
@@ -8,20 +9,19 @@ function App() {
 
   return (
     <>
-      <h1>Welcome to the dynamic form fetcher.</h1>
+      <h1>Formity.</h1>
       <p>
         This application dynamically fetches and displays form schemas based on
         the provided form ID.
-        <br />
-        To see the form in action, please choose one of the available forms.
       </p>
       <p>
-        You can use the following form IDs to test:
-        <button onClick={() => setFormId("user-registration")}>
+        <p>Choose a form!</p>
+
+        <Button onClick={() => setFormId("user-registration")}>
           Registration Form
-        </button>
-        <button onClick={() => setFormId("contact-form")}>Contact Form</button>
-        <button onClick={() => setFormId("nahhhh")}>Non-existing Form</button>
+        </Button>
+        <Button onClick={() => setFormId("contact-form")}>Contact Form</Button>
+        <Button onClick={() => setFormId("nahhhh")}>Non-existing Form</Button>
       </p>
 
       {formId && <FormLoader formId={formId} />}
