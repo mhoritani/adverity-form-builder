@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { focusOutline } from "../../../styles/mixins";
+import { focusOutline } from "../../styles/mixins";
 
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
