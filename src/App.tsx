@@ -1,6 +1,10 @@
 import { useState } from "react";
+
 import { FormLoader } from "./components/loaders";
-import { Button } from "./components/ui";
+import { FormSelector, Logo } from "./components/ui";
+import { Flex } from "./components/layout";
+
+import { theme } from "./styles/theme";
 
 import "./App.css";
 
@@ -9,22 +13,28 @@ function App() {
 
   return (
     <>
-      <h1>Formity.</h1>
-      <p>
-        This application dynamically fetches and displays form schemas based on
-        the provided form ID.
-      </p>
-      <p>
-        <p>Choose a form!</p>
+      <Flex
+        direction="column"
+        gap={theme.spacing.xl}
+        align="center"
+        justify="center"
+      >
+        <Flex
+          direction="column"
+          align="center"
+          justify="center"
+          gap={theme.spacing.lg}
+        >
+          <Logo />
+          <h2>Schema-Driven Form Generator</h2>
+          <p>
+            Select a form type to generate a dynamic form based on JSON schema
+          </p>
+          <FormSelector onFormSelection={setFormId} />
+        </Flex>
 
-        <Button onClick={() => setFormId("user-registration")}>
-          Registration Form
-        </Button>
-        <Button onClick={() => setFormId("contact-form")}>Contact Form</Button>
-        <Button onClick={() => setFormId("nahhhh")}>Non-existing Form</Button>
-      </p>
-
-      {formId && <FormLoader formId={formId} />}
+        {formId && <FormLoader formId={formId} />}
+      </Flex>
     </>
   );
 }
