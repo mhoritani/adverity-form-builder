@@ -22,6 +22,7 @@ export const mockFormSchemas: Record<string, FormSchema> = {
         },
         label: "First Name",
         validation: [{ type: "required", message: "First name is required" }],
+        placeholder: "Enter your full name",
       },
       {
         id: "email",
@@ -42,6 +43,23 @@ export const mockFormSchemas: Record<string, FormSchema> = {
             message: "Email already exists",
           },
         ],
+        placeholder: "your.email@example.com",
+      },
+      {
+        id: "password",
+        type: {
+          kind: "text",
+          variant: "password",
+          constraints: {
+            minLength: 8,
+            maxLength: 20,
+          },
+        },
+        label: "Password",
+        validation: [
+          { type: "required", message: "A password is required to proceed" },
+        ],
+        placeholder: "Super duper secret password here",
       },
       {
         id: "country",
@@ -78,6 +96,7 @@ export const mockFormSchemas: Record<string, FormSchema> = {
         },
         label: "Your Name",
         validation: [{ type: "required", message: "Name is required" }],
+        placeholder: "Enter your full name",
       },
       {
         id: "message",
@@ -88,6 +107,7 @@ export const mockFormSchemas: Record<string, FormSchema> = {
         },
         label: "Message",
         validation: [{ type: "required", message: "Message is required" }],
+        placeholder: "What do you want to tell us?",
       },
     ],
   },

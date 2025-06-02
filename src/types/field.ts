@@ -7,10 +7,10 @@ export interface FieldDefinition {
   description?: string;
   defaultValue?: unknown;
   validation: ValidationRule[];
+  placeholder?: string;
 }
 
 // Field Types
-
 export interface TextFieldType {
   kind: "text";
   variant: "single-line" | "multi-line" | "email" | "password" | "number";
@@ -39,5 +39,8 @@ export interface CheckboxFieldType {
 }
 
 // Easily extensible with things like file input, radio, etc.
-
 export type FieldType = TextFieldType | SelectFieldType | CheckboxFieldType;
+
+export interface BaseFieldProps {
+  definition: FieldDefinition;
+}
