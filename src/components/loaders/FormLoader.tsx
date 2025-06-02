@@ -1,6 +1,13 @@
 import type React from "react";
+import styled from "@emotion/styled";
+
 import { useFormSchema } from "../../hooks";
 import { Button } from "../ui";
+import { FormRenderer } from "../form";
+
+const FormWrapper = styled.div({
+  width: "100%",
+});
 
 export const FormLoader: React.FC<{
   formId: string;
@@ -8,7 +15,7 @@ export const FormLoader: React.FC<{
   const { data: schema, isLoading, error, refetch } = useFormSchema(formId);
 
   return (
-    <div className="form-loader">
+    <FormWrapper>
       {isLoading && <div className="loading">Loading form schema...</div>}
 
       {error && (
@@ -18,12 +25,7 @@ export const FormLoader: React.FC<{
         </div>
       )}
 
-      {schema && (
-        <div className="form-schema">
-          <h2>{schema.metadata.title}</h2>
-          <p>{schema.metadata.description}</p>
-        </div>
-      )}
-    </div>
+      {schema && <FormRenderer schema={schema}></FormRenderer>}
+    </FormWrapper>
   );
 };

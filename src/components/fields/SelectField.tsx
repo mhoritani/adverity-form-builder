@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import type { BaseFieldProps } from "../../types";
 import { FieldWrapper } from "./FieldWrapper";
 import { focusOutline } from "../../styles/mixins";
+import type { BaseFieldProps } from "../../types";
 
 export type SelectFieldProps = BaseFieldProps;
 
