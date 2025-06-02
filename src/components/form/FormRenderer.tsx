@@ -12,6 +12,9 @@ interface FormRendererProps {
 }
 
 const StyledForm = styled.form(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: theme.spacing.lg,
   padding: theme.spacing.lg,
   border: `1px solid ${theme.colors.border.default}`,
   borderRadius: theme.radius.md,

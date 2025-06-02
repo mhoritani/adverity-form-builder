@@ -13,9 +13,7 @@ const Label = styled.label(({ theme }) => ({
   marginBottom: theme.spacing.sm,
 }));
 
-const Wrapper = styled.div(({ theme }) => ({
-  marginBottom: theme.spacing.lg,
-}));
+const Wrapper = styled.div();
 
 const RequiredMark = styled.span(({ theme }) => ({
   color: theme.colors.error,
