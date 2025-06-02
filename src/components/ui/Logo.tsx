@@ -8,7 +8,7 @@ const StyledLogo = styled.div(({ theme }) => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: typography.fontSize["3xl"],
+    fontSize: `calc(${typography.fontSize["3xl"]} * 1.5)`,
     fontWeight: typography.fontWeight.light,
     textDecoration: "none",
 
