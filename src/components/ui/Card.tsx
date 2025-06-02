@@ -2,13 +2,24 @@ import styled from "@emotion/styled";
 import { radius } from "../../styles/tokens/radius";
 import { focusOutline } from "../../styles/mixins";
 
-const StyledCard = styled.div(({ theme }) => {
+export interface CardProps {
+  title: string;
+  text: string;
+  onClick?: () => void;
+  icon?: React.ReactNode;
+  selected?: boolean;
+}
+
+const StyledCard = styled.div<CardProps>(({ theme, selected }) => {
   const { colors, spacing, elevation, typography } = theme;
 
   return {
     cursor: "pointer",
     alignItems: "center",
     backgroundColor: colors.background.secondary,
+    border: selected
+      ? `1px solid ${colors.primary[500]}`
+      : `1px solid ${colors.border.default}`,
     borderRadius: radius.md,
     boxShadow: elevation.md,
     padding: spacing.md,
@@ -21,7 +32,6 @@ const StyledCard = styled.div(({ theme }) => {
     lineHeight: typography.lineHeight.normal,
 
     "&:hover": {
-      boxShadow: elevation.lg,
       backgroundColor: colors.background.tertiary,
     },
 
@@ -48,14 +58,13 @@ const StyledCard = styled.div(({ theme }) => {
   };
 });
 
-export interface CardProps {
-  title: string;
-  text: string;
-  onClick?: () => void;
-  icon?: React.ReactNode;
-}
-
-export const Card: React.FC<CardProps> = ({ title, text, icon, onClick }) => {
+export const Card: React.FC<CardProps> = ({
+  title,
+  text,
+  icon,
+  onClick,
+  selected,
+}) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (!onClick) {
       return;
@@ -73,6 +82,7 @@ export const Card: React.FC<CardProps> = ({ title, text, icon, onClick }) => {
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
+      selected={selected}
     >
       {icon && <div className="card-icon">{icon}</div>}
       <h2>{title}</h2>
