@@ -24,7 +24,7 @@ export const colors = {
   },
 
   border: {
-    default: "#27272a",
+    default: "#383838",
     hover: "#3f3f46",
     focus: "#10b77f",
     error: "#dc2626",
