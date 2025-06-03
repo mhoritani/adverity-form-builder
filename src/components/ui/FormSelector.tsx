@@ -11,7 +11,7 @@ export interface FormSelectorProps {
 const options = [
   {
     id: "user-registration",
-    title: "Personal Information",
+    title: "User Registration",
     text: "Basic personal details and contact information",
     icon: <IconClipboardText size={32} stroke={2} />,
   },
