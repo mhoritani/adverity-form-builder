@@ -69,6 +69,14 @@ export const mockFormSchemas: Record<string, FormSchema> = {
         label: "Country",
         validation: [{ type: "required", message: "Please select a country" }],
       },
+      {
+        id: "newsletter",
+        type: {
+          kind: "checkbox",
+        },
+        label: "I want to receive regular updates via email.",
+        validation: [],
+      },
     ],
   },
 

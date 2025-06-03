@@ -37,9 +37,16 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = ({
     (rule) => rule.type === "required",
   );
 
+  const isCheckbox = definition.type.kind === "checkbox";
+
   return (
     <Wrapper>
-      <Flex direction="column" align="start">
+      <Flex
+        direction={isCheckbox ? "row-reverse" : "column"}
+        align={isCheckbox ? "center" : "start"}
+        gap={isCheckbox ? "8px" : undefined}
+        justify={isCheckbox ? "flex-end" : undefined}
+      >
         <Label htmlFor={definition.id}>
           {definition.label}
           {isRequired && <RequiredMark>*</RequiredMark>}
