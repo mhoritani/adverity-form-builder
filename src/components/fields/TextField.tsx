@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { FieldWrapper } from "./FieldWrapper";
 import { focusOutline } from "../../styles/mixins";
 import type { BaseFieldProps } from "../../types";
+import { useFormContext } from "react-hook-form";
+import { getValidationRules } from "../../lib/validation";
 
 export type TextFieldProps = BaseFieldProps;
 
@@ -19,14 +21,15 @@ const StyledInput = styled.input(({ theme }) => ({
 const StyledTextArea = StyledInput.withComponent("textarea");
 
 export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
+  const { register } = useFormContext();
+
   if (definition.type.kind !== "text") {
     return null;
   }
 
   const { variant } = definition.type;
-  const isRequired = definition.validation.some(
-    (rule) => rule.type === "required",
-  );
+
+  const validationRules = getValidationRules(definition);
 
   let inputElement: React.ReactNode;
 
@@ -37,7 +40,7 @@ export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
           id={definition.id}
           type="text"
           placeholder={definition.placeholder}
-          required={isRequired}
+          {...register(definition.id, validationRules)}
         />
       );
       break;
@@ -46,7 +49,7 @@ export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
         <StyledTextArea
           id={definition.id}
           placeholder={definition.placeholder}
-          required={isRequired}
+          {...register(definition.id, validationRules)}
         />
       );
       break;
@@ -56,7 +59,7 @@ export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
           id={definition.id}
           type="email"
           placeholder={definition.placeholder}
-          required={isRequired}
+          {...register(definition.id, validationRules)}
         />
       );
       break;
@@ -66,7 +69,7 @@ export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
           id={definition.id}
           type="password"
           placeholder={definition.placeholder}
-          required={isRequired}
+          {...register(definition.id, validationRules)}
         />
       );
       break;
@@ -76,7 +79,7 @@ export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
           id={definition.id}
           type="number"
           placeholder={definition.placeholder}
-          required={isRequired}
+          {...register(definition.id, validationRules)}
         />
       );
       break;
@@ -86,7 +89,7 @@ export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
           id={definition.id}
           type="text"
           placeholder={definition.placeholder}
-          required={isRequired}
+          {...register(definition.id, validationRules)}
         />
       );
   }

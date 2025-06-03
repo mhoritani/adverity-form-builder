@@ -10,7 +10,7 @@ export interface CardProps {
   selected?: boolean;
 }
 
-const StyledCard = styled.div<CardProps>(({ theme, selected }) => {
+const StyledCard = styled.div<{ selected?: boolean }>(({ theme, selected }) => {
   const { colors, spacing, elevation, typography } = theme;
 
   return {

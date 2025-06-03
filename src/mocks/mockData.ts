@@ -35,14 +35,7 @@ export const mockFormSchemas: Record<string, FormSchema> = {
           },
         },
         label: "Email Address",
-        validation: [
-          { type: "required", message: "Email is required" },
-          {
-            type: "async",
-            params: { endpoint: "/api/validate/email" },
-            message: "Email already exists",
-          },
-        ],
+        validation: [{ type: "required", message: "Email is required" }],
         placeholder: "your.email@example.com",
       },
       {
@@ -83,6 +76,7 @@ export const mockFormSchemas: Record<string, FormSchema> = {
     id: "contact-form",
     metadata: {
       title: "Contact Us",
+      description: "Drop us a line",
       submitEndpoint: "/api/contact",
       submitMethod: "POST",
     },

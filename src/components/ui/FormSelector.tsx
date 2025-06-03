@@ -38,7 +38,6 @@ export const FormSelector: React.FC<FormSelectorProps> = ({
 }) => {
   const [selected, setSelected] = useState<number | null>(null);
   const onSelection = (index: number) => {
-    console.log("setting selected to: ", index);
     setSelected(index);
     onFormSelection(options[index].id);
   };

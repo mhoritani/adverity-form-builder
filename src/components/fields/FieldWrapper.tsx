@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
+import { useFormContext } from "react-hook-form";
+
 import { Flex } from "../layout";
+import { ErrorMessage } from "../ui";
+
 import type { FieldDefinition } from "../../types/field";
 
 interface FieldWrapperProps {
@@ -24,6 +28,11 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = ({
   definition,
   children,
 }) => {
+  const {
+    formState: { errors },
+  } = useFormContext();
+  const error = errors[definition.id]?.message as string | undefined;
+
   const isRequired = definition.validation.some(
     (rule) => rule.type === "required",
   );
@@ -39,6 +48,8 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = ({
         {definition.description && <div>{definition.description}</div>}
 
         {children}
+
+        {error && <ErrorMessage>{error}</ErrorMessage>}
       </Flex>
     </Wrapper>
   );

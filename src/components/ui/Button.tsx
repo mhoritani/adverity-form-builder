@@ -19,12 +19,12 @@ const StyledButton = styled.button(({ theme }) => {
     fontWeight: typography.fontWeight.semibold,
     border: 0,
     cursor: "pointer",
-    appearance: "none" as const, // weird workaround for TS error
+    appearance: "none" as const,
     padding: `${spacing.sm} ${spacing.md}`,
     fontSize: typography.fontSize.sm,
     backgroundColor: colors.primary[500],
     backgroundImage: `linear-gradient(to right, ${colors.gradient.primary.from}, ${colors.gradient.primary.to})`,
-    color: "#ffffff",
+    color: colors.text.primary,
 
     "&:hover": {
       backgroundImage: `linear-gradient(to right, ${colors.gradient.primaryHover.from}, ${colors.gradient.primaryHover.to})`,
@@ -36,7 +36,7 @@ const StyledButton = styled.button(({ theme }) => {
 
 export const Button = ({ icon, children, ...props }: ButtonProps) => (
   <StyledButton {...props}>
-    {icon && <span className="button-icon">{icon}</span>}
-    <span className="button-content">{children}</span>
+    {icon && icon}
+    <span>{children}</span>
   </StyledButton>
 );

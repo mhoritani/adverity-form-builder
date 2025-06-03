@@ -5,7 +5,6 @@ export interface FieldDefinition {
   type: FieldType;
   label: string;
   description?: string;
-  defaultValue?: unknown;
   validation: ValidationRule[];
   placeholder?: string;
 }
@@ -31,7 +30,6 @@ export interface SelectFieldType {
 export interface SelectOption {
   value: string;
   label: string;
-  disabled?: boolean;
 }
 
 export interface CheckboxFieldType {

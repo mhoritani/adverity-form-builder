@@ -1,14 +1,15 @@
 import styled from "@emotion/styled";
+import { useForm, FormProvider } from "react-hook-form";
 import { FormHeader } from "./FormHeader";
 import { FieldRenderer } from "./FieldRenderer";
 import { Button } from "../ui";
 
+import type { SubmitHandler, FieldValues } from "react-hook-form";
 import type { FormSchema } from "../../types";
 
 interface FormRendererProps {
   schema: FormSchema;
-  initialValues?: Record<string, unknown>;
-  onSubmit?: (values: FormData) => Promise<void>;
+  onSubmit: SubmitHandler<FieldValues>;
 }
 
 const StyledForm = styled.form(({ theme }) => ({
@@ -20,11 +21,11 @@ const StyledForm = styled.form(({ theme }) => ({
   borderRadius: theme.radius.md,
 }));
 
-export const FormRenderer: React.FC<FormRendererProps> = ({ schema }) => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    alert("Form submitted!");
-  };
+export const FormRenderer: React.FC<FormRendererProps> = ({
+  schema,
+  onSubmit,
+}) => {
+  const methods = useForm();
 
   return (
     <>
@@ -32,11 +33,13 @@ export const FormRenderer: React.FC<FormRendererProps> = ({ schema }) => {
         title={schema.metadata.title}
         description={schema.metadata.description}
       />
-      <StyledForm onSubmit={handleSubmit}>
-        <FieldRenderer fields={schema.fields} />
+      <FormProvider {...methods}>
+        <StyledForm onSubmit={methods.handleSubmit(onSubmit)}>
+          <FieldRenderer fields={schema.fields} />
 
-        <Button type="submit">Submit</Button>
-      </StyledForm>
+          <Button type="submit">Submit</Button>
+        </StyledForm>
+      </FormProvider>
     </>
   );
 };

@@ -1,0 +1,1 @@
+export { getValidationRules } from "./getValidationRules";
