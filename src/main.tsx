@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@emotion/react";
+import { Analytics } from "@vercel/analytics/react";
 
 import { GlobalStyles } from "./styles/GlobalStyles.tsx";
 import { theme } from "./styles/theme.ts";
@@ -26,6 +27,7 @@ enableMocking().then(() => {
           <App />
         </ThemeProvider>
       </QueryClientProvider>
+      <Analytics />
     </StrictMode>,
   );
 });
