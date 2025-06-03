@@ -6,3 +6,5 @@ export { ErrorMessage } from "./ErrorMessage";
 export { FormSkeleton } from "./FormSkeleton";
 export { FetchError } from "./FetchError";
 export { FormWelcome } from "./FormWelcome";
+export { ShowSchemaToggle } from "./ShowSchemaToggle";
+export { SchemaCodeBlock } from "./SchemaCodeBlock";

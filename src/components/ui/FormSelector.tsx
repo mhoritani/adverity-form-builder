@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  IconBriefcase,
-  IconClipboardText,
-  IconSchool,
-} from "@tabler/icons-react";
+import { IconClipboardText, IconPhone, IconSchool } from "@tabler/icons-react";
 import { theme } from "../../styles/theme";
 import { Flex } from "../layout";
 import { Card } from "./Card";
@@ -21,14 +17,14 @@ const options = [
   },
   {
     id: "contact-form",
-    title: "Employment History",
-    text: "Work experience and employment details",
-    icon: <IconBriefcase size={32} stroke={2} />,
+    title: "Basic Contact Form",
+    text: "General inquiry and communication for",
+    icon: <IconPhone size={32} stroke={2} />,
   },
   {
     id: "education-form",
     title: "Education Background",
-    text: "Academic qualifications and certifications",
+    text: "This will fail to showcase error handling",
     icon: <IconSchool size={32} stroke={2} />,
   },
 ];
