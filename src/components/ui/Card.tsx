@@ -49,7 +49,9 @@ const StyledCard = styled.div<{ selected?: boolean }>(({ theme, selected }) => {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: colors.primary[900],
+      backgroundColor: selected
+        ? colors.primary[500]
+        : colors.background.surface,
       borderRadius: radius.full,
       padding: spacing.sm,
     },

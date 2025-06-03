@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { FormLoader } from "./components/loaders";
-import { FormSelector } from "./components/ui";
+import { FormSelector, FormWelcome } from "./components/ui";
 import { Flex, Header } from "./components/layout";
 
 import { theme } from "./styles/theme";
@@ -29,6 +29,7 @@ function App() {
           <FormSelector onFormSelection={setFormId} />
         </Flex>
 
+        {!formId && <FormWelcome />}
         {formId && <FormLoader formId={formId} />}
       </Flex>
     </>

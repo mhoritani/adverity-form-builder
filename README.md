@@ -1,4 +1,4 @@
-# Adverity Dynamic Form System
+# FormForge – Dynamic Form System for Adverity
 
 A React-based form system that renders forms dynamically from JSON schemas. Built as a POC to demonstrate architecture with TypeScript, modern React patterns, and robust validation.
 

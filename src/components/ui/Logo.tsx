@@ -14,7 +14,7 @@ const StyledLogo = styled.div(({ theme }) => {
 
     "& svg": {
       marginLeft: theme.spacing.sm,
-      color: colors.primary[300],
+      color: colors.primary[500],
     },
   };
 });
