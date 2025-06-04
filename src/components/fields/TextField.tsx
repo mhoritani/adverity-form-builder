@@ -21,7 +21,10 @@ const StyledInput = styled.input(({ theme }) => ({
 const StyledTextArea = StyledInput.withComponent("textarea");
 
 export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   if (definition.type.kind !== "text") {
     return null;
@@ -41,6 +44,7 @@ export const TextField: React.FC<TextFieldProps> = ({ definition }) => {
           type="text"
           placeholder={definition.placeholder}
           {...register(definition.id, validationRules)}
+          aria-invalid={errors[definition.id] ? "true" : "false"}
         />
       );
       break;

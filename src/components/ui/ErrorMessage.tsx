@@ -15,7 +15,7 @@ const StyledError = styled.div(({ theme }) => ({
 
 export const ErrorMessage: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <StyledError>
+    <StyledError role="alert">
       <Flex align="center" gap={theme.spacing.xs}>
         <IconExclamationCircle size={12} />
         {children}
